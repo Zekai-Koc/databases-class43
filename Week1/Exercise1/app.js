@@ -4,15 +4,11 @@ import { createDB, createAndSeedTables } from "./db_utils/dbUtils.js";
 
 const app = express();
 
-const PORT = process.env.DBPORT || 3333;
-
-app.get("/", (req, res) => {
-   res.send(`Database handling app.`);
-});
+const port = process.env.DBPORT || 3333;
 
 app.get("/createdb", createDB);
 app.get("/createandseedtables", createAndSeedTables);
 
-app.listen(PORT, () => {
-   console.log(`Listening on port: ${PORT}`);
+app.listen(port, () => {
+   console.log(`Listening on port: ${port}`);
 });

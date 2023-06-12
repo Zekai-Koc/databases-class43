@@ -10,6 +10,7 @@ export const createDB = (req, res) => {
          res.status(500).send("An error occurred while dropping the database.");
          return;
       }
+      console.log(`Database dropped. Database name: ${dbSQLs.dbName}`);
    });
    db.query(dbSQLs.create, (err) => {
       if (err) {
