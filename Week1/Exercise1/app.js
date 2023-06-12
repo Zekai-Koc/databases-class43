@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createDB, createAndSeedTables333 } from "./db_utils/dbUtils.js";
+import { createDB, createAndSeedTables } from "./db_utils/dbUtils.js";
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/createdb", createDB);
-app.get("/createandseedtables", createAndSeedTables333);
+app.get("/createandseedtables", createAndSeedTables);
 
 app.listen(PORT, () => {
    console.log(`Listening on port: ${PORT}`);
