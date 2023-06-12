@@ -1,6 +1,6 @@
 import mysql from "mysql";
 import * as dbConfig from "./dbConfig.js";
-import { tableSQLs, dbSQLs } from "./sqls.js";
+import { tableSQLs, dbSQLs } from "./sqlStatements.js";
 
 export const createDB = (req, res) => {
    const db = mysql.createConnection(dbConfig.initialConfig);
