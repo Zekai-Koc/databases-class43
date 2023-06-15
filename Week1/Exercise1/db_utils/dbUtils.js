@@ -4,9 +4,9 @@ import { tableSQLs, dbSQLs } from "./sqlStatements.js";
 
 export const createDB = (req, res) => {
    const db = mysql.createConnection(dbConfig.initialConfig);
+
    db.query(dbSQLs.drop, (err) => {
       if (err) {
-         console.log(err);
          res.status(500).send("An error occurred while dropping the database.");
          return;
       }
@@ -14,7 +14,6 @@ export const createDB = (req, res) => {
    });
    db.query(dbSQLs.create, (err) => {
       if (err) {
-         console.log(err);
          res.status(500).send("An error occurred while creating the database.");
          return;
       }
