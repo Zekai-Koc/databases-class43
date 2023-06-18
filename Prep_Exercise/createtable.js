@@ -1,17 +1,16 @@
 import mysql from "mysql";
-import { initialConfig } from "./dbConfig.js";
+import { config } from "./dbConfig.js";
 
-export const createDB = (sql) => {
+export const createTable = (sql) => {
    return new Promise((resolve, reject) => {
-      const connection = mysql.createConnection(initialConfig);
+      const connection = mysql.createConnection(config);
       try {
-         console.log("Checking/creating db...");
          connection.query(sql.create, (error, result) => {
             if (error)
                throw new Error(
-                  `Error creating DB: ${sql.databaseName} ` + error.message
+                  `Error creating table: ${sql.tableName} ` + error.message
                );
-            console.log(`DB: ${sql.databaseName} is ready to use.`);
+            console.log(`Table: ${sql.tableName} is ready to use.`);
             resolve(result);
          });
       } catch (error) {
