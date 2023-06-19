@@ -6,9 +6,15 @@ const executeSQL = (sql) => {
       const connection = mysql.createConnection(config);
       try {
          connection.query(sql, (error, result) => {
-            if (error) throw new Error(`Error executing SQL! ` + error.message);
-            console.log(`SQL executed succesfully..`);
-            // console.log(result);
+            if (error)
+               throw new Error(
+                  `Error executing SQL! \n ${sql} \n ` + error.message
+               );
+            console.log(
+               `SQL: "${sql.slice(0, 50)}..." executed succesfully...`
+            );
+            // For a better view, comment out the following "console.log(result)" line
+            console.log(result);
             resolve(result);
          });
       } catch (error) {

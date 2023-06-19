@@ -8,7 +8,7 @@ const createTable = (sql) => {
          connection.query(sql, (error, result) => {
             if (error)
                throw new Error(`Error creating table! ` + error.message);
-            console.log(`Table is ready to use.`);
+            console.log(`Table: ${tableName(sql)}  is ready to use.`);
             resolve(result);
          });
       } catch (error) {
@@ -18,5 +18,10 @@ const createTable = (sql) => {
       }
    });
 };
+
+// Presumes that create table sql starts with: "CREATE TABLE IF NOT EXISTS ..."
+function tableName(sql) {
+   return sql.split(" ")[5];
+}
 
 module.exports = createTable;

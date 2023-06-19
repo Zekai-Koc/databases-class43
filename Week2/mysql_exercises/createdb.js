@@ -23,28 +23,3 @@ const createDB = (dbName) => {
 };
 
 module.exports = createDB;
-
-// const mysql = require("mysql");
-
-// const initialConfig = {
-//    host: "localhost",
-//    user: "hyfuser",
-//    password: "hyfpassword",
-//    // database: 'userdb',
-// };
-
-// const connection = mysql.createConnection(initialConfig);
-
-// const createDB = (dbName) => {
-//    const sqlCreateDB = `CREATE DATABASE IF NOT EXISTS ${dbName}`;
-//    return new Promise((reject, resolve) => {
-//       connection.query(sqlCreateDB, (error, result) => {
-//          if (error) reject(error);
-//          console.log(result);
-//          connection.end();
-//          resolve(result);
-//       });
-//    });
-// };
-
-// module.exports = createDB;
