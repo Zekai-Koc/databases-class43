@@ -1,10 +1,10 @@
-const mysql = require("mysql");
 const createDB = require("./createdb.js");
 const createTable = require("./createtable.js");
 const executeSQL = require("./executeSQL.js");
 
 const {
    sqlCreateTableAuthors,
+   sqlAddColumnAuthors,
    sqlInsertAuthors,
 } = require("./sql_table_authors.js");
 
@@ -43,6 +43,7 @@ async function mainFunction() {
    console.log(`--------------------------------`);
 
    await createTable(sqlCreateTableAuthors);
+   await executeSQL(sqlAddColumnAuthors);
    await executeSQL(sqlInsertAuthors);
    console.log(`--------------------------------`);
 

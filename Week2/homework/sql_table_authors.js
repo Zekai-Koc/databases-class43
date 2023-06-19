@@ -4,10 +4,13 @@ const sqlCreateTableAuthors = `CREATE TABLE IF NOT EXISTS authors (
    university VARCHAR(255),
    date_of_birth DATE,
    h_index INT,
-   gender ENUM('Male', 'Female'),
-   mentor_id INT,
-   CONSTRAINT fk_mentor FOREIGN KEY (mentor_id) REFERENCES mentors(mentor_id)
+   gender ENUM('Male', 'Female')
    );`;
+
+const sqlAddColumnAuthors = `ALTER TABLE authors
+   ADD COLUMN mentor_id INT,
+   ADD CONSTRAINT fk_mentor
+   FOREIGN KEY (mentor_id) REFERENCES mentors(mentor_id);`;
 
 const sqlInsertAuthors = `INSERT INTO authors (author_name, university, date_of_birth, h_index, gender, mentor_id) VALUES
    ('John Smith', 'Massachusetts Institute of Technology', '1985-07-12', 18, 'Male', 2),
@@ -38,5 +41,6 @@ const sqlInsertAuthors = `INSERT INTO authors (author_name, university, date_of_
 
 module.exports = {
    sqlCreateTableAuthors,
+   sqlAddColumnAuthors,
    sqlInsertAuthors,
 };
