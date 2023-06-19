@@ -13,7 +13,7 @@ const executeSQL = (sql) => {
             console.log(
                `SQL: "${sql.slice(0, 50)}..." executed succesfully...`
             );
-            // For a better view, comment out the following "console.log(result)" line
+            // OPTIONAL - For a better view, comment out the following "console.log(result)" line
             console.log(result);
             resolve(result);
          });

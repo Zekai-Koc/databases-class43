@@ -1,4 +1,4 @@
-const sqlCreateTableAuthorsPapers = `create table if not exists authors_papers( author_id int,  paper_id int, primary key (author_id, paper_id), foreign key (author_id) references authors(author_id), foreign key (paper_id) references research_papers(paper_id)
+const sqlCreateTableAuthorsPapers = `CREATE TABLE IF NOT EXISTS authors_papers( author_id int,  paper_id int, primary key (author_id, paper_id), foreign key (author_id) references authors(author_id), foreign key (paper_id) references research_papers(paper_id)
 );`;
 
 const sqlInsertAuthorsPapers = ` INSERT INTO authors_papers (author_id, paper_id) VALUES

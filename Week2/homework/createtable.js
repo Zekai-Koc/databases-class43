@@ -19,7 +19,7 @@ const createTable = (sql) => {
    });
 };
 
-// Presumes that create table sql starts with: "CREATE TABLE IF NOT EXISTS ..."
+// OPTIONAL - Presumes that create table sql starts with: "CREATE TABLE IF NOT EXISTS ..."
 function tableName(sql) {
    return sql.split(" ")[5];
 }
