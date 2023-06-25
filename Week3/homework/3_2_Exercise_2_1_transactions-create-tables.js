@@ -1,51 +1,20 @@
-const mysql = require("mysql");
+/* Please execute app.js for creating the following tables. */
 
-// Create a MySQL connection pool
-const connectionMySql = mysql.createPool({
-   host: "your_host",
-   user: "your_username",
-   password: "your_password",
-   database: "your_database",
-});
+const sqlCreateTableAccount = `CREATE TABLE IF NOT EXISTS account (
+   account_number INT PRIMARY KEY, 
+   balance float
+   );`;
 
-// Create the account table
-const createTableAccount = () => {
-   const sqlCreateTableAccount = `CREATE TABLE IF NOT EXISTS account (
-      account_number INT AUTO_INCREMENT PRIMARY KEY, 
-      balance float
-      );`;
+const sqlCreateTableAccountChanges = `CREATE TABLE IF NOT EXISTS account_changes (
+   change_number INT AUTO_INCREMENT PRIMARY KEY,
+   account_number int,
+   amount float, 
+   changed_date Date, 
+   remark Text,
+   FOREIGN key (account_number) REFERENCES account(account_number)
+   );`;
 
-   connectionMySql.query(sqlCreateTableAccount, (error, results, fields) => {
-      if (error) {
-         console.error("Error creating account table:", error);
-      } else {
-         console.log("Account table created successfully.");
-      }
-   });
+module.exports = {
+   sqlCreateTableAccount,
+   sqlCreateTableAccountChanges,
 };
-
-// Create the account_changes table
-const createTableAccountChanges = () => {
-   const sqlCreateTableAccountChanges = `CREATE TABLE account_changes (
-      change_number INT AUTO_INCREMENT PRIMARY KEY,
-      account_number int,
-      amount float, 
-      changed_date Date, 
-      remark Text,
-      FOREIGN key (account_number) REFERENCES account(account_number),
-      );`;
-
-   connectionMySql.query(
-      sqlCreateTableAccountChanges,
-      (error, results, fields) => {
-         if (error) {
-            console.error("Error creating account_changes table:", error);
-         } else {
-            console.log("Account_changes table created successfully.");
-         }
-      }
-   );
-};
-
-createTableAccount();
-createTableAccountChanges();
