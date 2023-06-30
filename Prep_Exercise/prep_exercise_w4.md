@@ -47,6 +47,8 @@ I have created two options for this exercise:
 -  Ingredients
 -  Methods
 
+In both options `difficulty_id` field deleted and `difficulty` field added.
+
 ---
 
 ## Discussion
