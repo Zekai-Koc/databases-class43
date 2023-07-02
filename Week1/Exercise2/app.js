@@ -23,5 +23,4 @@ sqlStatements.forEach((sqlStatement) => {
       };
       console.log(tempObj);
    });
-   return;
 });
