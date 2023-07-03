@@ -22,7 +22,7 @@ const accounts = [
    },
    {
       account_number: 101,
-      balance: 500,
+      balance: 1500,
       account_changes: [
          {
             change_number: 1,
@@ -115,9 +115,9 @@ const fillAccountsArray = () => {
                await account.create(accounts[i]);
             }
 
-            console.log("Account info added to account table.");
+            console.log("Account collection created.");
             db.close();
-            res("Account info added to account table.");
+            res("Account collection created.");
          });
       } catch (error) {
          db.close();
