@@ -116,9 +116,11 @@ const fillAccountsArray = () => {
             }
 
             console.log("Account info added to account table.");
+            db.close();
             res("Account info added to account table.");
          });
       } catch (error) {
+         db.close();
          rej(error);
       }
    });
