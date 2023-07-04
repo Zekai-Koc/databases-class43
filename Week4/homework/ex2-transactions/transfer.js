@@ -75,7 +75,7 @@ const transfer = async (accountNumber, amount, remark) => {
       }
    );
    console.log(
-      `Transferring from account: ${accountNumber}, amount: ${amount}, note: "${remark}".`
+      `Transferring from/to account: ${accountNumber}, amount: ${amount}, note: "${remark}".`
    );
 };
 
