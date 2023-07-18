@@ -1,6 +1,9 @@
-const createDB = require("./createdb.js");
-const createTable = require("./createtable.js");
-const executeSQL = require("./executeSQL.js");
+// const createDB = require("./createdb.js");
+// const createTable = require("./createtable.js");
+// const executeSQL = require("./executeSQL.js");
+
+// const dbUtils = require("./db_utils.js");
+const { createDB, createTable, executeSQL } = require("./db_utils.js");
 
 const {
    sqlCreateTableAuthors,
